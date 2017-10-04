@@ -1,7 +1,7 @@
-<script type="text/javascript" src="/data/fileManagerData.js"></script>
+
 $(function () {
 	//$("#treeview").shieldTreeView({
-		//dataSource: dataSrc
+	//	dataSource: dataSrc
 	//});
 	for (var key in folderData) {
 		$(".pb-filemng-template-body").append(

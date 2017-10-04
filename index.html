@@ -7,6 +7,8 @@
 
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheet.css" />
+
 
 	<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
@@ -88,110 +90,11 @@
 	</div>
 </div>
 
-<style>
-	.pb-filemng-template {
-		margin-top: 40px;
-		font-family: 'Sansita', sans-serif;
-	}
-
-	.pb-filemng-navbar {
-		margin-bottom: 0;
-	}
-
-	.treeview-toggle-btn {
-		margin-left: 15px;
-	}
-
-	.pb-filemng-template-btn {
-		background-color: Transparent;
-		background-repeat:no-repeat;
-		border: none;
-		cursor:pointer;
-		outline:none;
-		color: gray;
-		padding: 0px 13px 0px 13px;
-	}
-
-	.pb-filemng-active {
-		border-bottom: 2px solid #6d97db;
-		color: #5f6977;
-	}
-
-	.pb-filemng-template-btn:hover {
-		color: blue;
-	}
-
-	.pb-filemng-body-folders > img:hover {
-		cursor: pointer;
-	}
-
-	.btn-align {
-		margin-top: 7px;
-	}
-
-	.pb-filemng-template-treeview {
-		border-right: 1px solid gray;
-	}
-
-	.pb-filemng-folder {
-		color: orange;
-		padding-bottom: 3px;
-	}
-
-	.pb-filemng-paragraphs {
-		margin-top: -20px;
-		text-align: center;
-	}
-
-	.img-responsive {
-		margin: 0 auto;
-	}
-
-@media screen and (max-width: 767px) {
-
-	.pb-filemng-template-treeview {
-		border-right: none;
-	}
-
-	#options {
-		text-align: center;
-	}
-
-	#options > li {
-		display: inline-block;
-	}
-
-	#pb-filemng-navigation > ul {
-		text-align: center;
-	}
-
-	#pb-filemng-navigation > ul > li {
-		display: inline-block;
-	}
-
-}
-</style>
-
 <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-<!--<script type="text/javascript" src="/shieldui/shieldui-all.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/shieldui/light-bootstrap-all.min.css" /-->
-<script type="text/javascript" src="/data/WEBfileManagerData.js"></script>
-
-<script>
-	$(function () {
-		//$("#treeview").shieldTreeView({
-			//dataSource: dataSrc
-		//});
-		for (var key in folderData) {
-			$(".pb-filemng-template-body").append(
-				'<div class=\"col-xs-6 col-sm-6 col-md-3 pb-filemng-body-folders\">' +
-				folderData[key].icon + '<br />' +
-				'<p class="pb-filemng-paragraphs">' + folderData[key].text + '</p>' +
-				'</div>'
-			);
-		}
-	})
-</script>
+<script type="text/javascript" src="/shieldui/shieldui-all.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/shieldui/light-bootstrap-all.min.css" />
+<script type="text/javascript" src="/js/fileManagerData.js"></script>
+<script type="text/javascript" src="/js/filemanager.js"></script>
 <!-- File Manager - END -->
 
 </div>
