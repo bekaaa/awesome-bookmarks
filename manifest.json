@@ -1,32 +1,28 @@
 {
 	"manifest_version": 2,
-	"name": "Override examples",
+	"name": "Awesome Bookmarks",
 	"version": "0.1",
 
 	"icons" : {
-		"48" : "icons/beasts-48.png"
+		"48" : "icons/logo-48.png"
 	},
 
 	"permissions": [
-		"topSites", "bookmarks"
+		"bookmarks"
 	],
 	"background": {
 		"scripts": ["/js/listener.js"]
 	},
 
 	"browser_action" : {
-		"default_icon" : "icons/beasts-32.png",
-		"default_title" : "file manager"
+		"default_icon" : "icons/logo-32.png",
+		"default_title" : "AwBookmarks"
 	},
 
 	"web_accessible_resources" : [
-		"data/fileManagerData.js",
-		"data/images/filemanager/*.png"
+		"/index.html",
+		"/js/*.js",
+		"/icons/*.png"
 	]
 
-	"applications": {
-		"gecko": {
-			"strict_min_version": "54.0a1"
-		}
-	}
 }

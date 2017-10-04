@@ -68,10 +68,10 @@ var dataSrc = [
     },
 ]
 
-var folderImg = browser.extension.getURL("/data/images/filemanager/folder.png");
-var forbiddenFolderImg = browser.extension.getURL("/data/images/filemanager/forbidden-folder.png");
-var exeIconImg = browser.extension.getURL("/data/images/filemanager/exe-icon.png");
-var isoIconImg = browser.extension.getURL("/data/images/filemanager/iso-icon.png");
+var folderImg = browser.extension.getURL("/icons/folder.png");
+var forbiddenFolderImg = browser.extension.getURL("/icons/forbidden-folder.png");
+var exeIconImg = browser.extension.getURL("/icons/exe-icon.png");
+var isoIconImg = browser.extension.getURL("/icons/iso-icon.png");
 
 var folderData =
 [

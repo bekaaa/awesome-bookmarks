@@ -3,7 +3,7 @@ function openPage()
 	browser.tabs.create(
 		{
 			active:true,
-			url : "/index.html"
+			url : browser.extension.getURL("/index.html")
 		});
 }
 
