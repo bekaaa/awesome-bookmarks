@@ -7,9 +7,9 @@
 	margin-bottom: 0;
 }
 
-.treeview-toggle-btn {
+/*.treeview-toggle-btn {
 	margin-left: 15px;
-}
+}*/
 
 .pb-filemng-template-btn {
 	background-color: Transparent;
@@ -38,9 +38,9 @@
 	margin-top: 7px;
 }
 
-.pb-filemng-template-treeview {
+/*.pb-filemng-template-treeview {
 	border-right: 1px solid gray;
-}
+}*/
 
 .pb-filemng-folder {
 	color: orange;
@@ -58,9 +58,9 @@
 
 @media screen and (max-width: 767px) {
 
-.pb-filemng-template-treeview {
+/*.pb-filemng-template-treeview {
 	border-right: none;
-}
+}*/
 
 #options {
 	text-align: center;
@@ -79,3 +79,15 @@
 }
 
 }
+/*mine*/
+.panel-body.pb-filemng-panel-body
+{
+	background-color: #e3e9f2;
+}
+/*.pb-filemng-body-folders
+{
+	border: 1px solid white;
+	border-radius: 12px;
+	background-color: white;
+}
+*/

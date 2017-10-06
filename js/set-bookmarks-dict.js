@@ -62,8 +62,10 @@ function logTree(bookmarkItems)
 		// update the bookmarksData list.
 		bookmarksData.push(
 		{
-			"icon": "<a href=\"" + url + "\" > " +
-			"<img class=\"img-responsive\" src=\"" + icon + "\"> </a>",
+			"icon":
+			"<span class=\"glyphicon glyphicon-folder-open\"></span>",
+			//"<img class=\"img-responsive\" src=\"" + icon + "\">
+			//"</a>",
 			"text": title
 		});
 	}
@@ -74,11 +76,11 @@ function logTree(bookmarkItems)
 	{
 		for ( let item of bookmarksData )
 		{
-			console.log(item)
 			$(".pb-filemng-template-body").append(
-				'<div class=\"col-xs-6 col-sm-6 col-md-3 pb-filemng-body-folders\">' +
-				item.icon + '<br />' +
-				'<p class="pb-filemng-paragraphs">' + item.text + '</p>' + '</div>'
+				"<a href=\"" + url + "\" > " +
+				'<div class=\"col-xs-6 col-sm-6 col-md-6 pb-filemng-body-folders\">' +
+				item.icon + '' +
+				'<p class="pb-filemng-paragraphs">' + item.text + '</p></a>' + '</div>'
 			);
 		}
 	})
