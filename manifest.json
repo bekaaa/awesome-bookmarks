@@ -4,7 +4,7 @@
 	"version": "0.1",
 
 	"icons" : {
-		"48" : "icons/logo-48.png"
+		"48" : "icons/icon.png"
 	},
 
 	"permissions": [
@@ -15,7 +15,7 @@
 	},
 
 	"browser_action" : {
-		"default_icon" : "icons/logo-32.png",
+		"default_icon" : "icons/icon.png",
 		"default_title" : "AwBookmarks"
 	},
 
