@@ -3,10 +3,11 @@ var ROOT
 var TRACKER = []
 function logRoot(bookmarkItems)
 {
-	PARENT = bookmarkItems[0].children.find(function(child)
-	{
-		return child.title == "Bookmarks Menu";
-	});
+	PARENT = bookmarkItems[0];
+	//PARENT = bookmarkItems[0].children.find(function(child)
+	//{
+		//return child.title == "Bookmarks Menu";
+	//});
 	ROOT = PARENT;
 	TRACKER = [];
 	TRACKER.push(PARENT);
@@ -31,7 +32,7 @@ function logNode(parentID)
 function goBack()
 {
 	if(!PARENT) { return; }
-	if( PARENT.parentId == "root________" ) { return; }
+	if( !PARENT.parentId ) { return; }
 	if(TRACKER == [] || TRACKER == [ROOT] ) { return; }
 
 	TRACKER.pop();
@@ -46,7 +47,15 @@ function logTree()
 	//remove all current items if there is
 	$(".pb-filemng-template-body").empty();
 	$('.currentNode').empty();
-	$(".currentNode").append('<p class="title">' + PARENT.title + '</p>');
+	if(PARENT.title == "")
+	{
+		$(".currentNode").append('<p class="title">Root</p>');
+
+	}
+	else
+	{
+		$(".currentNode").append('<p class="title">' + PARENT.title + '</p>');
+	}
 
 	// define two important containers.
 	var bookmarksData = [];
