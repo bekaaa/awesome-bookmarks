@@ -1,28 +1,42 @@
-var itemDict = new Map()
 var linkIcon = browser.extension.getURL("/icons/link.png");
 var folderIcon = browser.extension.getURL("/icons/folder.png");
-var bookmarksData = [];
+//var bookmarksData = [];
+//var itemDict = new Map();
 
-
-function logTree(bookmarkItems)
+function getRoot(bookmarkItems)
 {
-	var item;
 	if(bookmarkItems[0].children)
 	{
-		//debugger;
 		for( let child of bookmarkItems[0].children)
 		{
 			if( child.title == 'Bookmarks Menu' )
 			{
-				item = child;
+				var parent = child;
 				break;
 			}
 
 		}
 	}
-	// fetch children.
-	//var dict = new Map();
-	for (child of item.children)
+	logTree(parent);
+}
+function getParent(parentID)
+{
+	let parent = browser.bookmarks.getSubTree(parentID);
+	//debugger;
+	parent.then(function(b){logTree(b[0]);}, onRejected);
+}
+
+
+function logTree(parent)
+{
+	//remove all current items if there is
+	$(".pb-filemng-template-body").empty();
+	// define two important containers.
+	var bookmarksData = [];
+	var itemDict = new Map();
+	debugger;
+	// get children.
+	for ( let child of parent.children )
 	{
 		if (child.url)
 		{
@@ -36,37 +50,49 @@ function logTree(bookmarkItems)
 	//-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 	// update bokmarks Data list.
 	//-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-	for( const item of itemDict.values() )
+	for( let entry of itemDict.entries() )
 	{
-		// loop through all bookmarks items in shape [ url, title, "link" or "folder" ]
+		// loop through all bookmarks items in shape [id],[ url, title, "link" or "folder" ]
 		// set values to the three variables, url, title and icon.
-		if( item[2] == "link" )
+		let iid = entry[0];
+		let iurl = entry[1][0];
+		let ititle = entry[1][1];
+		let itype  = entry[1][2];
+
+		let id;
+		let url;
+		let title;
+		let icon;
+
+		if( itype == "link" )
 		{
 			icon = linkIcon;
-			url = item[0];
-			if( item[1] == "" )
+			url = iurl;
+			id  = "";
+			if( ititle == "" )
 			{
-				title = item[0];
+				title = iurl;
 			}
 			else
 			{
-				title = item[1];
+				title = ititle;
 			}
 		}
 		else
 		{
 			icon = folderIcon;
-			title = item[1];
+			title = ititle;
 			url = "";
+			id = iid
 		}
 		// update the bookmarksData list.
 		bookmarksData.push(
 		{
 			"icon":
 			"<span class=\"glyphicon glyphicon-folder-open\"></span>",
-			//"<img class=\"img-responsive\" src=\"" + icon + "\">
-			//"</a>",
-			"text": title
+			"title": title,
+			"url": url,
+			"id": id
 		});
 	}
 	//-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -74,19 +100,51 @@ function logTree(bookmarkItems)
 	//-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 	$(function ()
 	{
-		for ( let item of bookmarksData )
+		for ( var item of bookmarksData )
 		{
-			$(".pb-filemng-template-body").append(
-				"<a href=\"" + url + "\" > " +
+			if( item.id == "" )
+			{
+				var link = "href=\"" + item.url + "\"";
+			}
+			else
+			{
+				var link = "id=\"" + item.id + "\"";
+
+			}
+
+			var div = $(".pb-filemng-template-body").append(
+				"<a " + link + " > " +
 				'<div class=\"col-xs-6 col-sm-6 col-md-6 pb-filemng-body-folders\">' +
-				item.icon + '' +
-				'<p class="pb-filemng-paragraphs">' + item.text + '</p></a>' + '</div>'
+				item.icon +
+				'<p class="pb-filemng-paragraphs">' + item.title + '</p></a>' + '</div>'
 			);
+			//debugger;
+			if( item.id != "" )
+			{
+				//debugger;
+				//getParent(item.id)
+				//document.getElementById(item.id).addEventListener("click", function()
+				//{
+				//	console.log("hello");
+					//getParent(item.id);
+				//}, onRejected);
+/*
+				div.promise().done(function()
+				{
+					console.log("done");
+					$( "#" + item.id  ).click(function()
+					{
+						console.log("hello");
+						debugger;
+						getParent(item.id);
+						return false;
+					});
+				});*/
+			}
 		}
 	})
 	//-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 	//-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-
 }
 
 function onRejected(error)
@@ -96,4 +154,4 @@ function onRejected(error)
 
 //-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 var gettingTree = browser.bookmarks.getTree();
-gettingTree.then(logTree, onRejected);
+gettingTree.then(getRoot, onRejected);
