@@ -21,8 +21,14 @@
 
 	"web_accessible_resources" : [
 		"/index.html",
+		"stylesheet.css",
 		"/js/*.js",
-		"/icons/*.png"
+		"/icons/*.png",
+		"/assests/*.js",
+		"assests/bootstrap/css/*",
+		"assests/bootstrap/fonts/*",
+		"assests/bootstrap/js/*"
+
 	]
 
 }

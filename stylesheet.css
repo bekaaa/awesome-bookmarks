@@ -1,94 +1,62 @@
+/* Top div element */
 .pb-filemng-template {
 	margin-top: 40px;
 	font-family: 'Sansita', sans-serif;
 }
 
-.pb-filemng-navbar {
-	margin-bottom: 0;
-}
 
-/*.treeview-toggle-btn {
-	margin-left: 15px;
-}*/
-
-.pb-filemng-template-btn {
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor:pointer;
-	outline:none;
-	color: gray;
-	padding: 0px 13px 0px 13px;
-}
-
-.pb-filemng-active {
-	border-bottom: 2px solid #6d97db;
-	color: #5f6977;
-}
-
-.pb-filemng-template-btn:hover {
-	color: blue;
-}
-
-.pb-filemng-body-folders > img:hover {
+/* div element for each bookmark  */
+.pb-filemng-body-folders:hover
+{
+	border-radius: 10px;
+	background-color: white;
 	cursor: pointer;
 }
 
-.btn-align {
-	margin-top: 7px;
-}
-
-/*.pb-filemng-template-treeview {
-	border-right: 1px solid gray;
-}*/
-
-.pb-filemng-folder {
-	color: orange;
-	padding-bottom: 3px;
-}
-
+/* bookmark's title */
 .pb-filemng-paragraphs {
 	margin-top: -20px;
 	margin-left:20px;
 	text-align: left;
 }
 
-.img-responsive {
-	margin: 0 auto;
+.glyphicon-folder-open p
+{
+	color:red;
+}
+glyphicon-link p
+{
+	color: red;
 }
 
-@media screen and (max-width: 767px) {
-
-/*.pb-filemng-template-treeview {
-	border-right: none;
-}*/
-
-#options {
-	text-align: center;
-}
-
-#options > li {
-	display: inline-block;
-}
-
-#pb-filemng-navigation > ul {
-	text-align: center;
-}
-
-#pb-filemng-navigation > ul > li {
-	display: inline-block;
-}
-
-}
-/*mine*/
+/*  bookmarks form */
 .panel-body.pb-filemng-panel-body
 {
 	background-color: #e3e9f2;
 }
-/*.pb-filemng-body-folders
+
+/* BACK button */
+
+.glyphicon-menu-left
 {
-	border: 1px solid white;
-	border-radius: 12px;
+	width: 5px;
+	margin-bottom: 35px;
+	margin-left:18px;
+	height: 2px;
 	background-color: white;
+
 }
-*/
+
+.currentNode .title
+{
+	margin-top: -45px;
+	margin-left:65px;
+	text-align: left;
+	text-decoration:none;
+	font-size: 120%;
+}
+.currentNode .title:hover
+{
+	text-decoration: none;
+	cursor:default;
+}
